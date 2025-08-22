@@ -1,0 +1,156 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-size: 14px;
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.145 0 0);
+    --card: oklch(0.985 0 0);
+    --card-foreground: oklch(0.145 0 0);
+    --popover: oklch(1 0 0);
+    --popover-foreground: oklch(0.145 0 0);
+    --primary: #030213;
+    --primary-foreground: oklch(1 0 0);
+    --secondary: oklch(0.95 0.0058 264.53);
+    --secondary-foreground: #030213;
+    --muted: #ececf0;
+    --muted-foreground: #717182;
+    --accent: #e9ebef;
+    --accent-foreground: #030213;
+    --destructive: #d4183d;
+    --destructive-foreground: #ffffff;
+    --border: rgba(0, 0, 0, 0.1);
+    --input: transparent;
+    --input-background: #f3f3f5;
+    --switch-background: #cbced4;
+    --font-weight-medium: 500;
+    --font-weight-normal: 400;
+    --ring: oklch(0.708 0 0);
+    --chart-1: oklch(0.646 0.222 41.116);
+    --chart-2: oklch(0.6 0.118 184.704);
+    --chart-3: oklch(0.398 0.07 227.392);
+    --chart-4: oklch(0.828 0.189 84.429);
+    --chart-5: oklch(0.769 0.188 70.08);
+    --radius: 0.625rem;
+    --sidebar: oklch(0.985 0 0);
+    --sidebar-foreground: oklch(0.145 0 0);
+    --sidebar-primary: #030213;
+    --sidebar-primary-foreground: oklch(0.985 0 0);
+    --sidebar-accent: oklch(0.97 0 0);
+    --sidebar-accent-foreground: oklch(0.205 0 0);
+    --sidebar-border: oklch(0.922 0 0);
+    --sidebar-ring: oklch(0.708 0 0);
+  }
+
+  .dark {
+    --background: #020817;
+    --foreground: #fafafa;
+    --card: #0a0f25;
+    --card-foreground: #fafafa;
+    --popover: #020817;
+    --popover-foreground: #fafafa;
+    --primary: #3b82f6;
+    --primary-foreground: #fafafa;
+    --secondary: #1e293b;
+    --secondary-foreground: #fafafa;
+    --muted: #1e293b;
+    --muted-foreground: #a1a1aa;
+    --accent: #1e293b;
+    --accent-foreground: #fafafa;
+    --destructive: #ef4444;
+    --destructive-foreground: #fafafa;
+    --border: #1e293b;
+    --input: #1e293b;
+    --ring: #3b82f6;
+    --chart-1: #3b82f6;
+    --chart-2: #ef4444;
+    --chart-3: #8b5cf6;
+    --chart-4: #f97316;
+    --chart-5: #14b8a6;
+    --tab-inactive: #374151;
+    --tab-active: #4b5563;
+    --tab-inactive: #e5e7eb;
+    --tab-active: #d1d5db;
+  }
+
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  :where(:not(:has([class*=" text-"], [class^="text-"]))) {
+    h1, h2, h3, h4, p, label, button, input {
+      line-height: 1.6;
+    }
+    h1 {
+      font-size: var(--text-2xl);
+      font-weight: var(--font-weight-medium);
+    }
+
+    h2 {
+      font-size: var(--text-xl);
+      font-weight: var(--font-weight-medium);
+    }
+
+    h3 {
+      font-size: var(--text-lg);
+      font-weight: var(--font-weight-medium);
+    }
+
+    h4 {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+    }
+
+    p {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+    }
+
+    label {
+      font-size: var(--text-sm);
+      font-weight: var(--font-weight-medium);
+    }
+
+    button {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+    }
+
+    input {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+    }
+  }
+
+  html {
+    font-size: var(--font-size);
+  }
+}
+
+@layer components {
+  .result-card {
+    @apply bg-card border border-border rounded-lg p-4 text-center shadow-md transition-all hover:shadow-lg;
+  }
+  .result-card .value {
+    @apply text-2xl font-bold text-primary;
+  }
+  .result-card .label {
+    @apply text-sm text-muted-foreground;
+  }
+
+  .tab-trigger {
+    @apply bg-[var(--tab-inactive)];
+  }
+
+  .tab-trigger[data-state="active"] {
+    @apply bg-[var(--tab-active)];
+  }
+}
